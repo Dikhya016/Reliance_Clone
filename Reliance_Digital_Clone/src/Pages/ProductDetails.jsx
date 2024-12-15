@@ -54,6 +54,7 @@ function ProductDetails() {
       
     } else {
       alert("Product is already in the cart!");
+      
     }
   };
 
