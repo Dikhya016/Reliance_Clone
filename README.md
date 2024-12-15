@@ -95,7 +95,7 @@ reliance-clone/
 ![Screenshot 2024-12-15 193352](https://github.com/user-attachments/assets/40d13949-e96e-4cfa-b47c-03c71a6903d8)
 ![Screenshot 2024-12-15 193431](https://github.com/user-attachments/assets/1f63a275-7e3f-4b46-8a8c-85ed9da525cc)
 
-###Footer Page
+### Footer Page
 ![Screenshot 2024-12-15 194508](https://github.com/user-attachments/assets/0ed3eea2-9c44-4d2b-ba44-c01a476d31a8)
 
 ---
