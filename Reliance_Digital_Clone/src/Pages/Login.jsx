@@ -15,35 +15,56 @@ function LoginRegister() {
   const handleRegister = (e) => {
     e.preventDefault();
 
+    // Retrieve existing users from localStorage or initialize an empty array
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if the email is already registered
+    const existingUser = users.find((user) => user.email === registerEmail);
+    if (existingUser) {
+      setMessage(
+        "Email is already registered. Please log in or use a different email."
+      );
+      return;
+    }
+
     // Store user data in localStorage
-    const user = {
+    const newUser = {
       name: registerName,
       email: registerEmail,
       password: registerPassword,
     };
 
-    localStorage.setItem('user', JSON.stringify(user));
-    setMessage('Registration successful! Please log in.');
-    setRegisterName('');
-    setRegisterEmail('');
-    setRegisterPassword('');
+
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+    setMessage("Registration successful! Please log in.");
+    setRegisterName("");
+    setRegisterEmail("");
+    setRegisterPassword("");
     setIsRegister(false);
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Retrieve user data from localStorage
-    const storedUser = JSON.parse(localStorage.getItem('user'));
+    // Retrieve users array from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (storedUser && storedUser.email === loginEmail && storedUser.password === loginPassword) {
-      setMessage(`Welcome back, ${storedUser.name}!`);
+    // Check for matching user
+    const user = users.find(
+      (user) => user.email === loginEmail && user.password === loginPassword
+    );
+
+    if (user) {
+      setMessage(`Welcome back, ${user.name}!`);
     } else {
-      setMessage('Invalid email or password. Please try again.');
+      setMessage("Invalid email or password. Please try again.");
     }
 
-    setLoginEmail('');
-    setLoginPassword('');
+    setLoginEmail("");
+    setLoginPassword("");
+
+    
   };
 
   return (
